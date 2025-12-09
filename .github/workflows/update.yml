@@ -1,0 +1,30 @@
+name: Update Proton CachyOS x86-64 v4
+
+on:
+  workflow_dispatch: # Allows manual triggering
+  schedule:
+    - cron: "0 5 * * *" # Runs at 5:00 AM UTC daily
+
+jobs:
+  update-flake:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@v27
+        with:
+          nix_path: nixpkgs=channel:nixos-unstable
+
+      - name: Run nvfetcher
+        run: |
+          # We enable experimental features explicitly to ensure 'nix shell' works
+          nix --extra-experimental-features 'nix-command flakes' shell nixpkgs#nvfetcher -c nvfetcher -o pkgs/_sources
+
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore(deps): update proton-cachyos sources"
+          file_pattern: "pkgs/_sources/*"
