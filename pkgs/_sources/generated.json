@@ -1,0 +1,17 @@
+{
+    "proton-cachyos": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "proton-cachyos",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-FfAk16TlhaXeBauCxAYTcI2pEg9FCE1QDIkxuiP7zSg=",
+            "type": "url",
+            "url": "https://github.com/CachyOS/proton-cachyos/releases/download/cachyos-10.0-20251126-slr/proton-cachyos-10.0-20251126-slr-x86_64_v4.tar.xz"
+        },
+        "version": "cachyos-10.0-20251126-slr"
+    }
+}

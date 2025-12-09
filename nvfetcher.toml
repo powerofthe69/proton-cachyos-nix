@@ -1,0 +1,6 @@
+[proton-cachyos]
+# 1. This automatically queries the API for the latest release tag
+src.github = "CachyOS/proton-cachyos"
+
+# 2. Download URL
+fetch.url = "https://github.com/CachyOS/proton-cachyos/releases/download/$ver/proton-$ver-x86_64_v4.tar.xz"
