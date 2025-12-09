@@ -2,7 +2,8 @@
 
 pkgs.stdenv.mkDerivation {
   pname = "proton-cachyos";
-  inherit (sources.proton-cachyos) version src;
+  version = pkgs.lib.removePrefix "cachyos-" sources.proton-cachyos.version;
+  inherit (sources.proton-cachyos) src;
 
   # GitHub uses .xz compression
   nativeBuildInputs = [ pkgs.xz ];
