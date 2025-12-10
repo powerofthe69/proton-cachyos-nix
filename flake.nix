@@ -30,7 +30,7 @@
         "proton-cachyos-x86_64_v4" = mkProton "proton-cachyos-x86_64_v4" "x86_64_v4";
 
         # Update the default to match the new name
-        default = self.packages.${system}."proton-cachyos-x86_64_v4";
+        default = self.packages.${system}.proton-cachyos;
       };
 
       overlays.default = final: prev: {
