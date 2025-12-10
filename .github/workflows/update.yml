@@ -1,4 +1,4 @@
-name: Update Proton CachyOS x86-64 v4
+name: Update Proton CachyOS
 
 on:
   workflow_dispatch: # Allows manual triggering
