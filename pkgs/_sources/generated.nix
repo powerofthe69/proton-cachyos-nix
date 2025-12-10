@@ -5,6 +5,30 @@
     pname = "proton-cachyos";
     version = "cachyos-10.0-20251126-slr";
     src = fetchurl {
+      url = "https://github.com/CachyOS/proton-cachyos/releases/download/cachyos-10.0-20251126-slr/proton-cachyos-10.0-20251126-slr-x86_64.tar.xz";
+      sha256 = "sha256-Vw7ootDMXm68SB2FH4gmFCGjNumCC45H1Gs166v2hco=";
+    };
+  };
+  proton-cachyos-x86_64_v2 = {
+    pname = "proton-cachyos-x86_64_v2";
+    version = "cachyos-10.0-20251126-slr";
+    src = fetchurl {
+      url = "https://github.com/CachyOS/proton-cachyos/releases/download/cachyos-10.0-20251126-slr/proton-cachyos-10.0-20251126-slr-x86_64_v2.tar.xz";
+      sha256 = "sha256-FZEwd7Y7aHCpaN8gCiOgI5c2Mol9lT9tCeaBd68E7vc=";
+    };
+  };
+  proton-cachyos-x86_64_v3 = {
+    pname = "proton-cachyos-x86_64_v3";
+    version = "cachyos-10.0-20251126-slr";
+    src = fetchurl {
+      url = "https://github.com/CachyOS/proton-cachyos/releases/download/cachyos-10.0-20251126-slr/proton-cachyos-10.0-20251126-slr-x86_64_v3.tar.xz";
+      sha256 = "sha256-BhgEKWyNnpUuSmNSbwINxAb1q8tYCQOMIdL8zAAht2E=";
+    };
+  };
+  proton-cachyos-x86_64_v4 = {
+    pname = "proton-cachyos-x86_64_v4";
+    version = "cachyos-10.0-20251126-slr";
+    src = fetchurl {
       url = "https://github.com/CachyOS/proton-cachyos/releases/download/cachyos-10.0-20251126-slr/proton-cachyos-10.0-20251126-slr-x86_64_v4.tar.xz";
       sha256 = "sha256-FfAk16TlhaXeBauCxAYTcI2pEg9FCE1QDIkxuiP7zSg=";
     };
