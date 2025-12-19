@@ -13,18 +13,29 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Install Nix
+      - name: Install Nix & pass experimental-features in workflow globally
         uses: cachix/install-nix-action@v27
         with:
           nix_path: nixpkgs=channel:nixos-unstable
+          extra_nix_config: |
+            experimental-features = nix-command flakes
+
+      - name: Update flake.lock # mitigate user downloading multiple revisions of nixpkgs/nixos-unstable
+        run: |
+          nix flake update
 
       - name: Run nvfetcher
         run: |
-          # We enable experimental features explicitly to ensure 'nix shell' works
-          nix --extra-experimental-features 'nix-command flakes' shell nixpkgs#nvfetcher -c nvfetcher -o pkgs/_sources
+          nix shell nixpkgs#nvfetcher -c nvfetcher -o pkgs/_sources
+
+      - name: Validate that flake builds after updating # unlikely with proton-cachyos, but best practice
+        run: nix build .
+
+      - name: Validate overlay output
+        run: nix flake check
 
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "chore(deps): update proton-cachyos sources"
-          file_pattern: "pkgs/_sources/*"
+          commit_message: "chore(deps): update proton-cachyos sources and flake.lock"
+          file_pattern: "pkgs/_sources/* flake.lock"
