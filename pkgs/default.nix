@@ -34,9 +34,14 @@ pkgs.stdenv.mkDerivation {
     sed -i -r "s|\"display_name\".*|\"display_name\" \"${steamName}\"|" \
       $steamcompattool/compatibilitytool.vdf
 
-    # Symlink to $out to avoid unclean /usr pathing of tools
+    # Create a real folder so that Steam doesn't require reselecting compatibility tool on update
+    mkdir -p $out/share/
+
+    # Create a real folder so that Steam doesn't require reselecting compatibility tool on update
     mkdir -p $out/share/steam/compatibilitytools.d/${folderName}
-    ln -s $steamcompattool $out/share/steam/compatibilitytools.d/${folderName}
+
+    #Symlink the files INSIDE, not the folder itself. Oopsie
+    ln -s $steamcompattool/* $out/share/steam/compatibilitytools.d/${folderName}/
 
     runHook postInstall
   '';
