@@ -1,6 +1,6 @@
 {
     "proton-cachyos": {
-        "cargoLocks": null,
+        "cargoLock": null,
         "date": null,
         "extract": null,
         "name": "proton-cachyos",
@@ -15,7 +15,7 @@
         "version": "cachyos-10.0-20260102-slr"
     },
     "proton-cachyos-x86_64_v2": {
-        "cargoLocks": null,
+        "cargoLock": null,
         "date": null,
         "extract": null,
         "name": "proton-cachyos-x86_64_v2",
@@ -30,7 +30,7 @@
         "version": "cachyos-10.0-20260102-slr"
     },
     "proton-cachyos-x86_64_v3": {
-        "cargoLocks": null,
+        "cargoLock": null,
         "date": null,
         "extract": null,
         "name": "proton-cachyos-x86_64_v3",
@@ -45,7 +45,7 @@
         "version": "cachyos-10.0-20260102-slr"
     },
     "proton-cachyos-x86_64_v4": {
-        "cargoLocks": null,
+        "cargoLock": null,
         "date": null,
         "extract": null,
         "name": "proton-cachyos-x86_64_v4",
