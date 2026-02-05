@@ -18,26 +18,44 @@
           source = sources.${sourceKey};
           variant = variantName;
         };
+
+      proton = mkProton "proton-cachyos" "base";
+      protonv2 = mkProton "proton-cachyos-x86_64-v2" "x86_64-v2";
+      protonv3 = mkProton "proton-cachyos-x86_64-v3" "x86_64-v3";
+      protonv4 = mkProton "proton-cachyos-x86_64-v4" "x86_64-v4";
+
     in
     {
-      packages.${system} = {
-        # Base has no suffix
-        proton-cachyos = mkProton "proton-cachyos" "base";
+      packages.${pkgs.stdenv.hostPlatform.system} = {
+        proton-cachyos = proton;
+        proton-cachyos-x86_64-v2 = protonv2;
+        proton-cachyos-x86_64-v3 = protonv3;
+        proton-cachyos-x86_64-v4 = protonv4;
 
-        # "Attribute Name"             = mkProton "Source Key (from nvfetcher)"   "Variant Name"
-        "proton-cachyos-x86_64_v2" = mkProton "proton-cachyos-x86_64_v2" "x86_64_v2";
-        "proton-cachyos-x86_64_v3" = mkProton "proton-cachyos-x86_64_v3" "x86_64_v3";
-        "proton-cachyos-x86_64_v4" = mkProton "proton-cachyos-x86_64_v4" "x86_64_v4";
+        # Deprecated aliases (w/ underscores) for backwards compatibility
+        proton-cachyos-x86_64_v2 = protonv2;
+        proton-cachyos-x86_64_v3 = protonv3;
+        proton-cachyos-x86_64_v4 = protonv4;
 
-        # Update the default to match the new name
-        default = self.packages.${system}.proton-cachyos;
+        default = proton;
       };
 
       overlays.default = final: prev: {
-        proton-cachyos = self.packages.${system}.proton-cachyos;
-        "proton-cachyos-x86_64_v2" = self.packages.${system}."proton-cachyos-x86_64_v2";
-        "proton-cachyos-x86_64_v3" = self.packages.${system}."proton-cachyos-x86_64_v3";
-        "proton-cachyos-x86_64_v4" = self.packages.${system}."proton-cachyos-x86_64_v4";
+        proton-cachyos = self.packages.${final.stdenv.hostPlatform.system}.proton-cachyos;
+        proton-cachyos-x86_64-v2 =
+          self.packages.${final.stdenv.hostPlatform.system}.proton-cachyos-x86_64-v2;
+        proton-cachyos-x86_64-v3 =
+          self.packages.${final.stdenv.hostPlatform.system}.proton-cachyos-x86_64-v3;
+        proton-cachyos-x86_64-v4 =
+          self.packages.${final.stdenv.hostPlatform.system}.proton-cachyos-x86_64-v4;
+
+        # Deprecated aliases w/ underscores
+        proton-cachyos-x86_64_v2 =
+          self.packages.${final.stdenv.hostPlatform.system}.proton-cachyos-x86_64-v2;
+        proton-cachyos-x86_64_v3 =
+          self.packages.${final.stdenv.hostPlatform.system}.proton-cachyos-x86_64-v3;
+        proton-cachyos-x86_64_v4 =
+          self.packages.${final.stdenv.hostPlatform.system}.proton-cachyos-x86_64-v4;
       };
     };
 }

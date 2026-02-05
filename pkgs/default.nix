@@ -2,6 +2,7 @@
   pkgs,
   source,
   variant,
+  renameInternalName ? true,
 }:
 
 let
@@ -34,13 +35,14 @@ pkgs.stdenv.mkDerivation {
     sed -i -r "s|\"display_name\".*|\"display_name\" \"${steamName}\"|" \
       $steamcompattool/compatibilitytool.vdf
 
-    # Create a real folder so that Steam doesn't require reselecting compatibility tool on update
-    mkdir -p $out/share/
+    ${pkgs.lib.optionalString renameInternalName ''
+      sed -i -r 's|"proton-cachyos-[^"]*"(\s*// Internal name)|"${steamName}"\1|' $steamcompattool/compatibilitytool.vdf
+    ''}
 
     # Create a real folder so that Steam doesn't require reselecting compatibility tool on update
     mkdir -p $out/share/steam/compatibilitytools.d/${folderName}
 
-    #Symlink the files INSIDE, not the folder itself. Oopsie
+    # Symlink the files INSIDE, not the folder itself
     ln -s $steamcompattool/* $out/share/steam/compatibilitytools.d/${folderName}/
 
     runHook postInstall
