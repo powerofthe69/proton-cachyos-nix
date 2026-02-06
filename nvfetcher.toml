@@ -4,16 +4,16 @@ src.github = "CachyOS/proton-cachyos"
 fetch.url = "https://github.com/CachyOS/proton-cachyos/releases/download/$ver/proton-$ver-x86_64.tar.xz"
 
 # v2
-[proton-cachyos-x86_64_v2]
+[proton-cachyos-x86_64-v2]
 src.github = "CachyOS/proton-cachyos"
 fetch.url = "https://github.com/CachyOS/proton-cachyos/releases/download/$ver/proton-$ver-x86_64_v2.tar.xz"
 
 # v3
-[proton-cachyos-x86_64_v3]
+[proton-cachyos-x86_64-v3]
 src.github = "CachyOS/proton-cachyos"
 fetch.url = "https://github.com/CachyOS/proton-cachyos/releases/download/$ver/proton-$ver-x86_64_v3.tar.xz"
 
 # v4
-[proton-cachyos-x86_64_v4]
+[proton-cachyos-x86_64-v4]
 src.github = "CachyOS/proton-cachyos"
 fetch.url = "https://github.com/CachyOS/proton-cachyos/releases/download/$ver/proton-$ver-x86_64_v4.tar.xz"
