@@ -14,11 +14,11 @@
         },
         "version": "cachyos-10.0-20260203-slr"
     },
-    "proton-cachyos-x86_64_v2": {
+    "proton-cachyos-x86_64-v2": {
         "cargoLock": null,
         "date": null,
         "extract": null,
-        "name": "proton-cachyos-x86_64_v2",
+        "name": "proton-cachyos-x86_64-v2",
         "passthru": null,
         "pinned": false,
         "src": {
@@ -29,11 +29,11 @@
         },
         "version": "cachyos-10.0-20260203-slr"
     },
-    "proton-cachyos-x86_64_v3": {
+    "proton-cachyos-x86_64-v3": {
         "cargoLock": null,
         "date": null,
         "extract": null,
-        "name": "proton-cachyos-x86_64_v3",
+        "name": "proton-cachyos-x86_64-v3",
         "passthru": null,
         "pinned": false,
         "src": {
@@ -44,11 +44,11 @@
         },
         "version": "cachyos-10.0-20260203-slr"
     },
-    "proton-cachyos-x86_64_v4": {
+    "proton-cachyos-x86_64-v4": {
         "cargoLock": null,
         "date": null,
         "extract": null,
-        "name": "proton-cachyos-x86_64_v4",
+        "name": "proton-cachyos-x86_64-v4",
         "passthru": null,
         "pinned": false,
         "src": {
