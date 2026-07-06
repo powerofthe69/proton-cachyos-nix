@@ -9,7 +9,11 @@
     { self, nixpkgs }:
     let
       system = "x86_64-linux";
-      pkgs = import nixpkgs { inherit system; };
+      pkgs = import nixpkgs {
+        inherit system;
+        # FSR4 amdxcffx64.dll is unfree
+        config.allowUnfree = true;
+      };
       sources = pkgs.callPackage ./pkgs/_sources/generated.nix { };
 
       mkProton =
