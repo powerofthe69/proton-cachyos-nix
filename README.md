@@ -1,4 +1,4 @@
-# This repo will continue to be maintained as it does not have a large overhead, but I have stood up a (currently, slightly) larger NUR that includes the proton-cachyos packages as well as a module for Nix installation of mesa-git (cached!), and packages for vintage-story, pokemmo, and whatever else I decide to update. I recommend using that!
+# This repo will continue to be maintained as it does not have a large overhead, but I have stood up a (currently, slightly) [larger NUR that includes the proton-cachyos](https://github.com/powerofthe69/nix-gaming-edge) packages as well as a module for Nix installation of mesa-git (cached!), and packages for vintage-story, pokemmo, and whatever else I decide to update. I recommend using that!
 
 
 
